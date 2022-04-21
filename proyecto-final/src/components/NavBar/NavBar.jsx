@@ -1,5 +1,6 @@
 import React from 'react';
 import './NavBar.scss';
+import CartWidget from "../CartWidget/CartWidget";
 
 function NavBar(props) {
   return (
@@ -10,6 +11,7 @@ function NavBar(props) {
         <li><a href='#' onClick={(() => alert('¡Proximamente!'))}>Jeans</a></li>
         <li><a href='#' onClick={(() => alert('¡Proximamente!'))}>Pantalones</a></li>
       </ul>
+      <CartWidget/>
     </div>
   );
 }
