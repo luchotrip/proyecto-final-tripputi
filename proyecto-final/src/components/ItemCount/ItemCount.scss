@@ -1,0 +1,41 @@
+.productsCounter {
+  div {
+    &:first-child {
+      padding: 20px 0;
+      display: flex;
+      justify-content: center;
+
+      p {
+        font-size: 20px;
+      }
+
+    }
+  }
+
+  button {
+    margin: 0 50px;
+
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+
+    &.btnIncrease{
+      background-color: #4CAF50;
+    }
+
+    &.btnDecrease{
+      background-color: #f44336;
+    }
+
+    &.addCart{
+      background-color: #008CBA;
+    }
+  }
+}
+
+
+

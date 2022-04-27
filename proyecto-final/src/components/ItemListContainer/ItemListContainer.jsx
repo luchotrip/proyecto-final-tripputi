@@ -1,5 +1,6 @@
 import React from 'react';
 import './ItemListContainer.scss';
+import ItemCount from "../ItemCount/ItemCount";
 
 function ItemListContainer(props) {
   return (
@@ -16,8 +17,9 @@ function ItemListContainer(props) {
           Item 3
         </li>
       </ul>
+      <ItemCount stock="5" initial="0"/>
     </div>
-  );
+);
 }
 
 export default ItemListContainer;
