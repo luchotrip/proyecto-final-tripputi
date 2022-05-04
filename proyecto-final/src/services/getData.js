@@ -100,4 +100,10 @@ const getData = new Promise((resolve) => {
   }, 2000)
 });
 
-export default getData;
+const getItem = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve(data[0]);
+  }, 2000)
+});
+
+export default getItem;
