@@ -6,7 +6,7 @@ function ItemList({products}) {
   return (
     <div className="itemList">
       {products.map((product => {
-        return <Item key={product.id} name={product.name} price={product.price} stock={product.stock}/>
+        return <Item key={product.id} product={product}/>
       }))
       }
     </div>

@@ -1,17 +1,18 @@
 import React, {useEffect, useState} from 'react';
 import './ItemListContainer.scss';
-import ItemCount from "../ItemCount/ItemCount";
 import ItemList from "../ItemList/ItemList";
-import getData from "../../services/getData";
+import { getData } from '../../services/getData';
+import {useParams} from "react-router-dom";
 
 function ItemListContainer(props) {
   const [products, setProducts] = useState([]);
+  const { categoryId } = useParams();
 
   useEffect(() => {
-    getData
+    getData(categoryId)
       .then((response) => setProducts(response))
       .catch((error) => console.log("Error: ", error))
-  }, []);
+  }, [categoryId]);
 
   return (
     <div>

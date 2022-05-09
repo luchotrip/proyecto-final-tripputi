@@ -1,12 +1,13 @@
 import React from 'react';
 import './Item.scss';
+import {Link} from "react-router-dom";
 
-function Item({name, price, stock}) {
+function Item({product}) {
   return (
     <div className="item">
-      <h2>{name}</h2>
-      <h4>Precio: ${price}</h4>
-      <p>Stock: {stock}</p>
+      <img alt={''} src={'https://www.dummyimage.com/200x100/000/fff'}/>
+      <h2>{product.name}</h2>
+      <Link to={'/item/' + product.id }>Ver Producto</Link>
     </div>
   );
 }

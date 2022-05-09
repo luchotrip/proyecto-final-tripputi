@@ -1,15 +1,17 @@
-.item {
+.itemDetail {
   margin: 10px;
   padding: 10px;
   background: lightblue;
-  width: 200px;
-  height: 200px;
   border-radius: 5px;
   text-align: center;
 
   h2 {
     color: orangered;
-    font-size: 18px;
+    font-size: 25px;
+  }
+
+  h4 {
+    font-size: 20px;
   }
 
   h4, p {

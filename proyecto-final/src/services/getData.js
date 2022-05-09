@@ -94,16 +94,21 @@ const data =
     },
   ];
 
-const getData = new Promise((resolve) => {
-  setTimeout(() => {
-    resolve(data);
-  }, 2000)
-});
+export function getData(categoryId){
+  const items = data.filter(item => item.category == categoryId);
+  console.log(items);
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(items.length > 0 ? items : data);
+    }, 2000)
+  });
+}
 
-const getItem = new Promise((resolve) => {
-  setTimeout(() => {
-    resolve(data[0]);
-  }, 2000)
-});
-
-export default getItem;
+export function getItem(id){
+  const item = data.filter(item => item.id == id);
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(item[0]);
+    }, 2000)
+  });
+}
