@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './ItemCount.scss';
 
-function ItemCount({stock, initial, onAdd}) {
+function ItemCount({stock, initial, productsAdded}) {
   const [count, setCount] = useState(0);
 
   const Increase = () => {
@@ -19,7 +19,7 @@ function ItemCount({stock, initial, onAdd}) {
   }
 
   const OnAdd = () => {
-    alert("Se agregaron " + count + " productos al carrito");
+    productsAdded(count);
   }
 
   return (
