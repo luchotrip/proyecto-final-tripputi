@@ -1,6 +1,27 @@
 .cart {
+  text-align: center;
+
   h1 {
     text-align: center;
   }
+
+  button {
+    margin: 20px;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+
+    &.btnRemove {
+      padding: 5px;
+      background: red;
+      color: white;
+    }
+  }
+
+
 }
 

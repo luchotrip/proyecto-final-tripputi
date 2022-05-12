@@ -1,10 +1,12 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import './ItemDetail.scss';
 import ItemCount from "../ItemCount/ItemCount";
 import {Link} from "react-router-dom";
+import {useCartContext} from "../CartContext/CartContext";
 
-function ItemDetail({name, price, stock}) {
+function ItemDetail({id,name, price, stock}) {
   const [productsAdded, setProductsAdded] = useState(false);
+  const { addToCart } = useCartContext();
 
   const handleEvent = event => {
     setProductsAdded(event);
@@ -17,7 +19,7 @@ function ItemDetail({name, price, stock}) {
       <h4>${price}</h4>
       <p>Stock: {stock}</p>
       {!productsAdded ? <ItemCount productsAdded={handleEvent} stock={stock} initial={0}/> :
-        <button><Link to={'/cart'}>Terminar compra ({productsAdded})</Link></button>}
+        <button onClick={() => addToCart({ id: id, name: name, price: price }, productsAdded)}><Link to={'/cart'}>Terminar compra ({productsAdded})</Link></button>}
     </div>
   );
 }
