@@ -96,7 +96,6 @@ const data =
 
 export function getData(categoryId){
   const items = data.filter(item => item.category == categoryId);
-  console.log(items);
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(items.length > 0 ? items : data);

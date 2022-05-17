@@ -1,12 +1,15 @@
 import React from 'react';
 import './Cart.scss';
 import {useCartContext} from "../CartContext/CartContext";
+import {Link} from "react-router-dom";
 
 function Cart() {
   const {cartList, emptyCart, deleteById} = useCartContext();
   return (
     <div className={"cart"}>
       <h1>Carrito</h1>
+      {cartList.length <= 0 ? <span>No hay productos en el carrito</span> :
+        <span>{'Hay ' + cartList.length + ' producto/s en el carrito.'}</span>}
       {cartList.length > 0 &&
       cartList.map((item) => (
         <div key={item.id}>
@@ -18,7 +21,8 @@ function Cart() {
         </div>
       ))}
       <div className={"buttons"}>
-        <button className={"btnEmpty"} onClick={() => emptyCart()}>Vaciar</button>
+        {cartList.length <= 0 ? <button><Link to={'/'}>Volver a la tienda</Link></button> :
+          <button className={"btnEmpty"} onClick={() => emptyCart()}>Vaciar</button>}
       </div>
     </div>
   );
