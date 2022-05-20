@@ -1,24 +1,39 @@
 import React, {useEffect, useState} from 'react';
 import './ItemListContainer.scss';
 import ItemList from "../ItemList/ItemList";
-import { getData } from '../../services/getData';
+// import {getData} from '../../services/getData';
 import {useParams} from "react-router-dom";
+import {collection, getDocs, getFirestore, query, where} from 'firebase/firestore';
 
 function ItemListContainer(props) {
   const [products, setProducts] = useState([]);
-  const { categoryId } = useParams();
+  const {categoryId} = useParams();
 
   useEffect(() => {
-    getData(categoryId)
-      .then((response) => setProducts(response))
-      .catch((error) => console.log("Error: ", error))
+    const db = getFirestore();
+    // items es la coleccion que creamos en firebase
+    const itemCollection = collection(db, 'items');
+
+    const q = categoryId && query(
+      itemCollection,
+      where ("category", "==", categoryId)
+    );
+
+    getDocs(q || itemCollection)
+      .then(snapshot => {
+        setProducts(snapshot.docs.map(doc => {
+          return {...doc.data(), id: doc.id}
+        }));
+      })
+      .catch(
+        err => console.log(err)
+      )
   }, [categoryId]);
 
+  console.log(products);
   return (
-    <div>
-      <h1>{props.greeting}</h1>
-      {/*<ItemCount stock="5" initial="0"/>*/}
-      <ItemList products={products} />
+        <div>
+      {products.length > 1 ? <ItemList products={products}/> : <p>No hay productos cargados con esa categoría en Firebase =(</p>}
     </div>
   );
 }
