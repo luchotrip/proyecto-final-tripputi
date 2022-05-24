@@ -23,6 +23,8 @@ function Cart() {
       <div className={"buttons"}>
         {cartList.length <= 0 ? <button><Link to={'/'}>Volver a la tienda</Link></button> :
           <button className={"btnEmpty"} onClick={() => emptyCart()}>Vaciar</button>}
+
+        <button className={"btnEndBuy"}><Link to={'/checkout'}>Finalizar Compra</Link></button>
       </div>
     </div>
   );

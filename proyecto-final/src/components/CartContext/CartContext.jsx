@@ -1,9 +1,13 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, {createContext, useContext, useState} from 'react';
 
-export const CartContext = createContext({});
+export const CartContext = createContext({
+  getCartQuantity: () => {},
+  getTotal: () => {}
+});
+
 export const useCartContext = () => useContext(CartContext);
 
-const CartContextProvider = ({ children }) => {
+const CartContextProvider = ({children}) => {
   const [cartList, setCartList] = useState([]);
 
   function addToCart(item, quantity) {
@@ -11,12 +15,12 @@ const CartContextProvider = ({ children }) => {
       return setCartList(
         cartList.map((product) =>
           product.id === item.id
-            ? { ...product, quantity: product.quantity + quantity }
+            ? {...product, quantity: product.quantity + quantity}
             : product
         )
       );
     }
-    setCartList([...cartList, { ...item, quantity }]);
+    setCartList([...cartList, {...item, quantity}]);
   }
 
   function deleteById(id) {
@@ -31,6 +35,18 @@ const CartContextProvider = ({ children }) => {
     return cartList.some((item) => item.id === id);
   }
 
+  const getCartQuantity = () => {
+    return cartList.reduce((total, value) => {
+      return total + value.quantity
+    }, 0)
+  }
+
+  const getTotal = () => {
+    return cartList.reduce((total, value) => {
+      return total += (value.quantity * value.price)
+    }, 0)
+  }
+
   return (
     <CartContext.Provider
       value={{
@@ -38,6 +54,8 @@ const CartContextProvider = ({ children }) => {
         addToCart,
         deleteById,
         emptyCart,
+        getTotal,
+        getCartQuantity,
       }}
     >
       {children}
