@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import icon from './img/shopping-cart.svg';
 import {Link} from "react-router-dom";
 import {useCartContext} from "../CartContext/CartContext";

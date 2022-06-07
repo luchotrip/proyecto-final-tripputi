@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useState} from 'react';
 import './Checkout.scss';
 import {useCartContext} from "../CartContext/CartContext";
 import {collection, addDoc, getFirestore} from "firebase/firestore";

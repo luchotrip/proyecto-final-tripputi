@@ -30,7 +30,6 @@ function ItemListContainer(props) {
       )
   }, [categoryId]);
 
-  console.log(products);
   return (
         <div>
       {products.length > 1 ? <ItemList products={products}/> : <p>No hay productos cargados con esa categoría en Firebase =(</p>}
