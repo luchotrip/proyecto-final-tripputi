@@ -19,7 +19,7 @@ function ItemDetail({id,name, price, stock}) {
       <h4>${price}</h4>
       <p>Stock: {stock}</p>
       {!productsAdded ? <ItemCount productsAdded={handleEvent} stock={stock} initial={0}/> :
-        <button onClick={() => addToCart({ id: id, name: name, price: price }, productsAdded)}><Link to={'/cart'}>Terminar compra ({productsAdded})</Link></button>}
+        <button className={"finishBuy"} onClick={() => addToCart({ id: id, name: name, price: price }, productsAdded)}><Link to={'/cart'}>Terminar compra ({productsAdded})</Link></button>}
     </div>
   );
 }

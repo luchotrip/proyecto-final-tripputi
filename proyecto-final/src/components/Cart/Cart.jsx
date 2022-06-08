@@ -5,12 +5,17 @@ import {Link} from "react-router-dom";
 
 function Cart() {
   const {cartList, emptyCart, deleteById} = useCartContext();
+
+  let sum = cartList.reduce(function(prev, current) {
+    return prev + +current.quantity
+  }, 0);
+
   return (
     <div className={"cart"}>
       <h1>Carrito</h1>
-      {cartList.length <= 0 ? <span>No hay productos en el carrito</span> :
-        <span>{'Hay ' + cartList.length + ' producto/s en el carrito.'}</span>}
-      {cartList.length > 0 &&
+      {sum <= 0 ? <span>No hay productos en el carrito</span> :
+        <span>{'Hay ' + sum  + ' producto/s en el carrito.'}</span>}
+      {sum > 0 &&
       cartList.map((item) => (
         <div key={item.id}>
             <span>

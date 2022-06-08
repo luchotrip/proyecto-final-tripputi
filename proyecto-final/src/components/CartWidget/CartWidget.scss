@@ -1,5 +1,8 @@
 .cartWidget {
   display: none;
+  background: whitesmoke;
+  padding: 5px;
+  border-radius: 50%;
 
   &.show {
     display: block;

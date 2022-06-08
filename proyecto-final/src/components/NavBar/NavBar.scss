@@ -2,10 +2,20 @@
   display: flex;
   justify-content: space-around;
   padding: 20px;
-  background: lightgrey;
+  background: #282783;
 
   h1 {
     margin: 0;
+
+    a {
+      color: white;
+
+      &:visited {
+        color: white;
+        text-decoration: none;
+      }
+    }
+
   }
 
   .nav {
@@ -23,7 +33,7 @@
         padding: 10px;
         color: white;
         background: black;
-        border-radius: 20px;
+        border-radius: 5px;
 
         &:hover {
           color: yellow;

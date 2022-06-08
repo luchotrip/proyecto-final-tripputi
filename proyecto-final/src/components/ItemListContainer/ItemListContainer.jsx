@@ -16,7 +16,7 @@ function ItemListContainer(props) {
 
     const q = categoryId && query(
       itemCollection,
-      where ("category", "==", categoryId)
+      where("category", "==", categoryId)
     );
 
     getDocs(q || itemCollection)
@@ -31,9 +31,10 @@ function ItemListContainer(props) {
   }, [categoryId]);
 
   return (
-        <div>
-      {products.length > 1 ? <ItemList products={products}/> : <p>No hay productos cargados con esa categoría en Firebase =(</p>}
-    </div>
+    <>
+      {products.length > 1 ? <ItemList products={products}/> :
+        <p>No hay productos cargados con esa categoría en Firebase =(</p>}
+    </>
   );
 }
 

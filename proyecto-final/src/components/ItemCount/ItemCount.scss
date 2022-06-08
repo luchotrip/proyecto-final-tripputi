@@ -14,7 +14,6 @@
 
   button {
     margin: 0 50px;
-
     border: none;
     color: white;
     padding: 15px 32px;
@@ -22,17 +21,34 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
 
-    &.btnIncrease{
-      background-color: #4CAF50;
+    &.btnIncrease {
+      background-color: darkgrey;
+
+      &:hover {
+        background-color: #f44336;
+      }
     }
 
-    &.btnDecrease{
-      background-color: #f44336;
+    &.btnDecrease {
+      background-color: darkgrey;
+
+      &:hover {
+        background-color: #4CAF50;
+      }
+
     }
 
-    &.addCart{
-      background-color: #008CBA;
+    &.addCart {
+      margin-top: 20px;
+      background-color: darkgrey;
+
+      &:hover {
+        color: white;
+        background-color: #282783;
+      }
     }
   }
 }
