@@ -32,7 +32,8 @@ function Checkout() {
       console.log(error)
     }
 
-    document.getElementById("order").reset();
+    document.getElementById("order").style.display = 'none';
+    document.getElementById("thanksMessage").style.display = 'block';
   }
 
   const handleSubmit = (e) => {
@@ -49,9 +50,9 @@ function Checkout() {
 
   return (
     <div className="checkout">
-      <h1>Finalizar compra:</h1>
-      <h2>Por favor, completa los siguientes datos.</h2>
       <form id={"order"} onSubmit={handleSubmit}>
+        <h1>Finalizar compra:</h1>
+        <h2>Por favor, completa los siguientes datos.</h2>
         <input type={"text"} placeholder={"Your name"} name={"Name"} value={Name} onChange={handleInputChange}
                required/>
         <input type={"number"} placeholder={"Your phone number"} name={"Phone"} value={Phone}
@@ -60,7 +61,9 @@ function Checkout() {
                required/>
         <input type={"submit"} value={"Finalizar Compra"}/>
       </form>
-
+      <div id={"thanksMessage"}>
+        <h1>Gracias por tu compra =D</h1>
+      </div>
     </div>
   );
 }
